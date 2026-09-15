@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mónica Ulloa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #3f4a3d;
+    --muted: #71856c;
+    --link: #2f5233;
+    --link-hover: #1d3520;
+    --rule: #b9dbae;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Nunito Sans", Helvetica, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  .lang-bar {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    font: inherit;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .lang-btn.active {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .lang-sep {
+    color: var(--rule);
+  }
+
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr) 260px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+  }
+
+  p {
+    margin: 0 0 1.25rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+  }
+
+  h2 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    margin: 3rem 0 1rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+  }
+
+  .identity > h2:first-of-type,
+  .research > h2:first-of-type,
+  aside > h2:first-of-type {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  a {
+    color: var(--link);
+    text-decoration-color: var(--rule);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    color: var(--link-hover);
+    text-decoration-color: var(--link-hover);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 1.1rem;
+  }
+
+  .entry-title {
+    display: block;
+  }
+
+  .entry-meta {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .fun-facts li {
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .fun-facts li::before {
+    content: "\2013";
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+  }
+
+  .song-list li,
+  .book-list li {
+    margin-bottom: 0.9rem;
+  }
+
+  .song-list a,
+  .book-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .song-list img {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    background: #fff;
+  }
+
+  .book-list img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    background: #fff;
+  }
+
+  .song-list .entry-title,
+  .book-list .entry-title {
+    font-size: 0.95rem;
+  }
+
+  .song-list .entry-meta,
+  .book-list .entry-meta {
+    font-size: 0.8rem;
+  }
+
+  footer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  #email-link {
+    color: var(--link);
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    background: none;
+    border: none;
+    font: inherit;
+    padding: 0;
+  }
+
+  @media (max-width: 900px) {
+    .page {
+      grid-template-columns: 1fr;
+      padding: 1rem 1.25rem 1rem;
+      gap: 0;
+    }
+    .research > h2:first-of-type,
+    aside > h2:first-of-type {
+      border-top: 1px solid var(--rule);
+      margin-top: 3rem;
+      padding-top: 2rem;
+    }
+    footer { padding: 2rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button type="button" class="lang-btn active" data-lang="en">EN</button>
+  <span class="lang-sep">·</span>
+  <button type="button" class="lang-btn" data-lang="es">ES</button>
+</div>
+
+<div class="page">
+
+<div class="identity">
+
+  <h1 data-en="Hello! I'm Mónica Ulloa." data-es="¡Hola! Soy Mónica Ulloa.">Hello! I'm Mónica Ulloa.</h1>
+
+  <p class="intro" data-en="I'm an anthropologist with a Master's degree in Social Studies of Science. My work looks at how emerging technologies shape the resilience and flourishing of societies." data-es="Soy antropóloga, con una maestría en Estudios Sociales de la Ciencia. Mi investigación se centra en cómo las tecnologías emergentes impactan la resiliencia y el florecimiento de las sociedades.">I'm an anthropologist with a Master's degree in Social Studies of Science. My work looks at how emerging technologies shape the resilience and flourishing of societies.</p>
+
+  <h2 data-en="Doings" data-es="En qué ando">Doings</h2>
+  <p>
+    <span data-en="I currently teach ethics workshops at the Universidad Nacional de Colombia. Separately, I'm working on an independent project about social cohesion under advanced AI (" data-es="Actualmente dicto talleres de ética en la Universidad Nacional de Colombia. Estoy trabajando en un proyecto independiente sobre cohesión social bajo IA avanzada (">I currently teach ethics workshops at the Universidad Nacional de Colombia. Separately, I'm working on an independent project about social cohesion under advanced AI (</span><a href="https://docs.google.com/document/d/12pia05pv_lAcvp8tZ5jBiKxK_oQ4exApUweHU8A41aQ/edit?tab=t.5k0fd8wteeze" target="_blank" rel="noopener" data-en="draft here" data-es="borrador aquí">draft here</a><span data-en="). I also play drums in a band, mostly playing Fugazi covers, and acoustic guitar on my own." data-es="). También toco batería en una banda, principalmente haciendo covers de Fugazi, y guitarra acústica por mi cuenta.">). I also play drums in a band, mostly playing Fugazi covers, and acoustic guitar on my own.</span>
+  </p>
+
+</div>
+
+<main class="research">
+
+  <h2 data-en="Selected Research (some published in Spanish)" data-es="Investigación seleccionada (algunas publicadas en inglés)">Selected Research (some published in Spanish)</h2>
+  <ul>
+    <li>
+      <a class="entry-title" href="https://revistas.unal.edu.co/index.php/recs/article/view/118857" target="_blank" rel="noopener" data-en="The No Future of High Fidelity: Punk Recording Practices in Bogotá (1990–2000)" data-es="El no futuro de la alta fidelidad: las prácticas de grabación de punk en Bogotá (1990–2000)">The No Future of High Fidelity: Punk Recording Practices in Bogotá (1990–2000)</a>
+      <span class="entry-meta" data-en="with Javier Guerrero-Castro — Revista Colombiana de Sociología, Vol. 48, No. 2 (2025)" data-es="con Javier Guerrero-Castro — Revista Colombiana de Sociología, Vol. 48, No. 2 (2025)">with Javier Guerrero-Castro — Revista Colombiana de Sociología, Vol. 48, No. 2 (2025)</span>
+    </li>
+    <li>
+      <a class="entry-title" href="https://arxiv.org/abs/2510.19801" target="_blank" rel="noopener" data-en="The Feasibility of Training Sovereign Language Models in the Global South: A Study of Brazil and Mexico" data-es="La viabilidad de entrenar modelos de lenguaje soberanos en el sur global: un estudio de Brasil y México">The Feasibility of Training Sovereign Language Models in the Global South: A Study of Brazil and Mexico</a>
+      <span class="entry-meta" data-en="arXiv:2510.19801 [cs.LG] — October 2025" data-es="arXiv:2510.19801 [cs.LG] — octubre 2025">arXiv:2510.19801 [cs.LG] — October 2025</span>
+    </li>
+    <li>
+      <a class="entry-title" href="https://revistas.uniandes.edu.co/index.php/res/article/view/10754/11013" target="_blank" rel="noopener" data-en="The Securitization of Artificial Intelligence: An Analysis of Its Drivers and Consequences" data-es="La securitización de la inteligencia artificial: un análisis de sus impulsores y sus consecuencias" data-href-en="https://revistas.uniandes.edu.co/index.php/res/article/view/10754/11013" data-href-es="https://revistas.uniandes.edu.co/index.php/res/article/view/10754">The Securitization of Artificial Intelligence: An Analysis of Its Drivers and Consequences</a>
+      <span class="entry-meta" data-en="with Guillem Bas Graells — Revista de Estudios Sociales, Universidad de los Andes — June 2025" data-es="con Guillem Bas Graells — Revista de Estudios Sociales, Universidad de los Andes — junio 2025">with Guillem Bas Graells — Revista de Estudios Sociales, Universidad de los Andes — June 2025</span>
+    </li>
+    <li>
+      <a class="entry-title" href="https://www.revistareder.com/ojs/index.php/reder/article/view/164" target="_blank" rel="noopener" data-en="Resilient Food Solutions to Prevent Mass Famine During a Nuclear Winter in Argentina" data-es="Soluciones alimentarias resilientes para evitar la hambruna masiva durante un invierno nuclear en Argentina">Resilient Food Solutions to Prevent Mass Famine During a Nuclear Winter in Argentina</a>
+      <span class="entry-meta">Revista de Estudios Latinoamericanos sobre Reducción del Riesgo de Desastres, Vol. 8, Núm. 2 (2024)</span>
+    </li>
+    <li>
+      <a class="entry-title" href="https://revistas.upb.edu.co/index.php/analecta/article/view/8420" target="_blank" rel="noopener" data-en="From Local Disasters to Global Solutions: Social Risk Perception in the Management of Global Catastrophic Risks" data-es="Desastres locales a soluciones globales: la percepción social del riesgo en la gestión de Riesgos Catastróficos Globales">From Local Disasters to Global Solutions: Social Risk Perception in the Management of Global Catastrophic Risks</a>
+      <span class="entry-meta">Revista Analecta Política, Vol. 14, Núm. 27 (2024)</span>
+    </li>
+  </ul>
+
+  <h2 data-en="Selected Speakings" data-es="Charlas seleccionadas">Selected Speakings</h2>
+  <ul>
+    <li>
+      <span class="entry-title" data-en="Resilient food solutions under abrupt sunlight reduction scenarios: lessons from Argentina" data-es="Soluciones alimentarias resilientes ante escenarios abruptos de reducción de luz solar: lecciones de Argentina">Resilient food solutions under abrupt sunlight reduction scenarios: lessons from Argentina</span>
+      <span class="entry-meta">Volcanic Impacts on Climate and Society, St Andrews, Scotland — 2026</span>
+    </li>
+    <li>
+      <span class="entry-title" data-en="Latin America's Role in Global Catastrophic Risk Management: Insights, Opportunities, and Challenges" data-es="El papel de América Latina en la gestión de riesgos catastróficos globales: percepciones, oportunidades y desafíos">Latin America's Role in Global Catastrophic Risk Management: Insights, Opportunities, and Challenges</span>
+      <span class="entry-meta" data-en="Center for the Study of Existential Risk, University of Cambridge, UK — September 2024" data-es="Center for the Study of Existential Risk, University of Cambridge, UK — septiembre 2024">Center for the Study of Existential Risk, University of Cambridge, UK — September 2024</span>
+    </li>
+    <li>
+      <span class="entry-title" data-en="Governance of Global Catastrophic Risks: A Policy Transfer Perspective" data-es="Gobernanza de Riesgos Catastróficos Globales, una visión desde la transferencia de políticas">Governance of Global Catastrophic Risks: A Policy Transfer Perspective</span>
+      <span class="entry-meta" data-en="Universidad Nacional Autónoma de México, Mexico City, Mexico — January 2024" data-es="Universidad Nacional Autónoma de México, Ciudad de México, México — enero 2024">Universidad Nacional Autónoma de México, Mexico City, Mexico — January 2024</span>
+    </li>
+    <li>
+      <span class="entry-title" data-en="Classification and Analysis of Risks Derived from Artificial Intelligence" data-es="Clasificación y análisis de riesgos derivados de la Inteligencia Artificial">Classification and Analysis of Risks Derived from Artificial Intelligence</span>
+      <span class="entry-meta">Quinto Encuentro de Ciencia, Tecnología y Sociedad, CTS Ecuador — 2023</span>
+    </li>
+  </ul>
+
+  <h2 data-en="A Few More Things" data-es="Algunas cosas más">A Few More Things</h2>
+  <ul class="fun-facts">
+    <li data-en="I used to be a Policy Transfer Officer at the Observatorio de Riesgos Catastróficos Globales, and a Responsible AI Fellow at the Inter-American Development Bank Lab (IDB Lab)." data-es="Fui Policy Transfer Officer en el Observatorio de Riesgos Catastróficos Globales, y fellow de IA responsable en el BID Lab (Banco Interamericano de Desarrollo).">I used to be a Policy Transfer Officer at the Observatorio de Riesgos Catastróficos Globales, and a Responsible AI Fellow at the Inter-American Development Bank Lab (IDB Lab).</li>
+    <li><span data-en="I once appeared briefly playing drums in a (very bad) " data-es="Una vez aparecí brevemente tocando la batería en una ">I once appeared briefly playing drums in a (very bad) </span><a href="https://www.primevideo.com/-/es/detail/0IPRGV0CY726IR985OOY4SOXLH" target="_blank" rel="noopener" data-en="movie" data-es="película">movie</a><span data-en=")." data-es=" muy mala.">).</span></li>
+    <li data-en="I run a weekly board game club in a small town near my house." data-es="Organizo semanalmente un club de juegos de mesa en un pequeño pueblo cerca de mi casa.">I run a weekly board game club in a small town near my house.</li>
+    <li data-en="I love watching Pokémon VGC matches." data-es="Me encanta ver partidas de Pokémon VGC.">I love watching Pokémon VGC matches.</li>
+    <li data-en="I live on a mountain with my dog, Rafaella." data-es="Vivo en una montaña con mi perra, Rafaella.">I live on a mountain with my dog, Rafaella.</li>
+    <li data-en="My undergraduate thesis was on religious thought in the work of Philip K. Dick." data-es="Mi tesis de pregrado fue sobre el pensamiento religioso en la obra de Philip K. Dick.">My undergraduate thesis was on religious thought in the work of Philip K. Dick.</li>
+    <li><span data-en="I was part of my university's science fiction club, where I gave talks. My favorite one was on " data-es="Hice parte del club de ciencia ficción de mi universidad, donde hice algunas presentaciones. Mi favorita fue sobre ">I was part of my university's science fiction club, where I gave talks. My favorite one was on </span><em data-en="The Living" data-es="El Vivo">The Living</em><span data-en=", by Anna Starobinets." data-es=", de Anna Starobinets.">, by Anna Starobinets.</span></li>
+  </ul>
+
+</main>
+
+<aside>
+
+  <h2 data-en="Favorite Songs" data-es="Canciones favoritas">Favorite Songs</h2>
+  <ul class="song-list">
+    <li>
+      <a href="https://www.youtube.com/watch?v=GNTOWtVBnRI" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/GNTOWtVBnRI/mqdefault.jpg" alt="Marduk cover" loading="lazy">
+        <span><span class="entry-title">Marduk</span><span class="entry-meta">Austin TV</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=peiJ9_1tH_w" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/peiJ9_1tH_w/mqdefault.jpg" alt="Sound and Vision cover" loading="lazy">
+        <span><span class="entry-title">Sound and Vision</span><span class="entry-meta">David Bowie</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=inpvy83PLyI" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/inpvy83PLyI/mqdefault.jpg" alt="Tierra del aire cover" loading="lazy">
+        <span><span class="entry-title">Tierra del aire</span><span class="entry-meta">Todo o Nada</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=Ge-klfxtDZ4" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/Ge-klfxtDZ4/mqdefault.jpg" alt="Cobijeru cover" loading="lazy">
+        <span><span class="entry-title">Cobijeru</span><span class="entry-meta">Paradoxus Luporum</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=x34icYC8zA0" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/x34icYC8zA0/mqdefault.jpg" alt="A Little Respect cover" loading="lazy">
+        <span><span class="entry-title">A Little Respect</span><span class="entry-meta">Erasure</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=StylpEnayAQ" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/StylpEnayAQ/mqdefault.jpg" alt="Conversation Piece cover" loading="lazy">
+        <span><span class="entry-title">Conversation Piece</span><span class="entry-meta">David Bowie</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=GIvtWfcLeTg" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/GIvtWfcLeTg/mqdefault.jpg" alt="El hombre pájaro cover" loading="lazy">
+        <span><span class="entry-title">El hombre pájaro</span><span class="entry-meta">Robe</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=aj3KHukEwPI" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/aj3KHukEwPI/mqdefault.jpg" alt="Nuestro después cover" loading="lazy">
+        <span><span class="entry-title">Nuestro después</span><span class="entry-meta">Silvio Rodríguez</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=TH3wRXmRYJY" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/TH3wRXmRYJY/mqdefault.jpg" alt="Del tiempo perdido cover" loading="lazy">
+        <span><span class="entry-title">Del tiempo perdido</span><span class="entry-meta">Robe</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=Xw1mmqMD9j0" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/Xw1mmqMD9j0/mqdefault.jpg" alt="Letter to Hermione cover" loading="lazy">
+        <span><span class="entry-title">Letter to Hermione</span><span class="entry-meta">David Bowie</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=bhAeaB-ZY7s" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/bhAeaB-ZY7s/mqdefault.jpg" alt="Zugunruhe cover" loading="lazy">
+        <span><span class="entry-title">Zugunruhe</span><span class="entry-meta">Paradoxus Luporum</span></span>
+      </a>
+    </li>
+  </ul>
+
+  <h2 data-en="Favorite Books" data-es="Libros favoritos">Favorite Books</h2>
+  <ul class="book-list">
+    <li>
+      <a href="https://openlibrary.org/works/OL4150105W" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/10491924-M.jpg" alt="Un hombre cover" loading="lazy">
+        <span><span class="entry-title" data-en="A Man" data-es="Un hombre">A Man</span><span class="entry-meta">Oriana Fallaci</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://openlibrary.org/works/OL55649W" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/11248037-M.jpg" alt="Walden cover" loading="lazy">
+        <span><span class="entry-title">Walden</span><span class="entry-meta">Henry David Thoreau</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://openlibrary.org/books/OL3690331M" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/313991-M.jpg" alt="Resurrection cover" loading="lazy">
+        <span><span class="entry-title" data-en="Resurrection" data-es="Resurrección">Resurrection</span><span class="entry-meta">Leo Tolstoy</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://openlibrary.org/works/OL872932W" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/6562535-M.jpg" alt="Siddhartha cover" loading="lazy">
+        <span><span class="entry-title">Siddhartha</span><span class="entry-meta">Hermann Hesse</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://openlibrary.org/works/OL2172402W" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/4910773-M.jpg" alt="The Three Stigmata of Palmer Eldritch cover" loading="lazy">
+        <span><span class="entry-title" data-en="The Three Stigmata of Palmer Eldritch" data-es="Los tres estigmas de Palmer Eldritch">The Three Stigmata of Palmer Eldritch</span><span class="entry-meta">Philip K. Dick</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://openlibrary.org/works/OL2172454W" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/5018327-M.jpg" alt="Ubik cover" loading="lazy">
+        <span><span class="entry-title">Ubik</span><span class="entry-meta">Philip K. Dick</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://openlibrary.org/works/OL2172524W" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/9251944-M.jpg" alt="VALIS cover" loading="lazy">
+        <span><span class="entry-title">VALIS</span><span class="entry-meta">Philip K. Dick</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://openlibrary.org/works/OL873100W" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/1016864-M.jpg" alt="Narcissus and Goldmund cover" loading="lazy">
+        <span><span class="entry-title" data-en="Narcissus and Goldmund" data-es="Narciso y Goldmundo">Narcissus and Goldmund</span><span class="entry-meta">Hermann Hesse</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://openlibrary.org/works/OL20385088W" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/9052001-M.jpg" alt="Professor A. Donda cover" loading="lazy">
+        <span><span class="entry-title" data-en="Professor A. Donda" data-es="El profesor A. Donda">Professor A. Donda</span><span class="entry-meta">Stanisław Lem</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="https://openlibrary.org/works/OL52556W" target="_blank" rel="noopener">
+        <img src="https://covers.openlibrary.org/b/id/7187281-M.jpg" alt="The Sorrows of Young Werther cover" loading="lazy">
+        <span><span class="entry-title" data-en="The Sorrows of Young Werther" data-es="Las penas del joven Werther">The Sorrows of Young Werther</span><span class="entry-meta">Johann Wolfgang von Goethe</span></span>
+      </a>
+    </li>
+  </ul>
+
+</aside>
+</div>
+
+<footer>
+  <span data-en="Write to me if you want to say hello — " data-es="Escríbeme si quieres saludar — ">Write to me if you want to say hello — </span>
+  <button id="email-link" onclick="revealEmail()" data-en="show email" data-es="ver correo">show email</button>
+</footer>
+
+<script>
+  function revealEmail() {
+    var codes = [109,97,117,108,108,111,97,114,117,105,122,64,103,109,97,105,108,46,99,111,109];
+    var address = codes.map(function (c) { return String.fromCharCode(c); }).join("");
+    var el = document.getElementById("email-link");
+    el.outerHTML = '<a href="mailto:' + address + '">' + address + '</a>';
+  }
+
+  function setLanguage(lang) {
+    document.querySelectorAll("[data-en]").forEach(function (el) {
+      var text = lang === "es" ? (el.getAttribute("data-es") || el.getAttribute("data-en")) : el.getAttribute("data-en");
+      el.textContent = text;
+    });
+    document.querySelectorAll("[data-href-en]").forEach(function (el) {
+      var href = lang === "es" ? (el.getAttribute("data-href-es") || el.getAttribute("data-href-en")) : el.getAttribute("data-href-en");
+      el.setAttribute("href", href);
+    });
+    document.documentElement.lang = lang;
+    document.querySelectorAll(".lang-btn").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+    try { localStorage.setItem("site-lang", lang); } catch (e) {}
+  }
+
+  document.querySelectorAll(".lang-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () { setLanguage(btn.getAttribute("data-lang")); });
+  });
+
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("site-lang"); } catch (e) {}
+    if (saved === "es") setLanguage("es");
+  })();
+</script>
+
+</body>
+</html>
